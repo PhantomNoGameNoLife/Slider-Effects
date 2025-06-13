@@ -1,0 +1,303 @@
+/* ************************** start general css ************************** */
+:root {
+    --topic-color: #f1683a;
+    --main-color: #ea3d41;
+    --secondary-color: #eee;
+    --default-color: #000;
+}
+
+body {
+    font-family: Poppins;
+    overflow: hidden;
+    background-color: var(--default-color);
+    color: var(--secondary-color);
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ************************** end general css ************************** */
+/* ************************** start navbar ************************** */
+.navbar {
+    background-color: transparent;
+}
+
+.navbar-nav a {
+    font-size: 1.125rem;
+}
+
+/* ************************** end navbar ************************** */
+/* ************************** start slider ************************** */
+.slider {
+    overflow: hidden;
+    height: 100dvh;
+    width: 100%;
+    position: relative;
+}
+
+.slider .list {
+    width: 100%;
+    height: 100%;
+}
+
+.slider .list .item {
+    position: absolute;
+    inset: 0;
+}
+
+.slider .list .item:nth-child(1) {
+    z-index: 1;
+}
+
+.slider .list .item .content {
+    position: absolute;
+    top: 20%;
+    margin: 0 auto;
+    text-shadow: 0 5px 10px var(--default-color);
+}
+
+.slider .list .item .content .anime {
+    font-weight: bold;
+    letter-spacing: 10px;
+    color: var(--main-color);
+}
+
+.slider .list .item .content .title,
+.slider .list .item .content .topic {
+    font-weight: bold;
+    font-size: 5em;
+    line-height: 1.3em;
+}
+
+.slider .list .item .content .topic {
+    color: var(--topic-color);
+}
+
+.slider .list .item .content .buttons button {
+    background-color: var(--secondary-color);
+    color: var(--default-color);
+    letter-spacing: 2px;
+    border: none;
+    font-weight: 500;
+    transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+}
+
+.slider .list .item .content .buttons button:nth-child(2) {
+    background-color: transparent;
+    border: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+.slider .list .item .content .buttons button:hover {
+    background-color: var(--topic-color);
+    border-color: var(--topic-color);
+}
+
+
+.slider .list .item:nth-child(1) .anime,
+.slider .list .item:nth-child(1) .title,
+.slider .list .item:nth-child(1) .topic,
+.slider .list .item:nth-child(1) .des,
+.slider .list .item:nth-child(1) .buttons {
+    transform: translateY(50px);
+    -webkit-transform: translateY(50px);
+    -moz-transform: translateY(50px);
+    -ms-transform: translateY(50px);
+    -o-transform: translateY(50px);
+    filter: blur(20px);
+    -webkit-filter: blur(20px);
+    opacity: 0;
+    animation: showContent 0.5s 1s linear 1 forwards;
+    -webkit-animation: showContent 0.5s 1s linear 1 forwards;
+}
+
+.slider .list .item:nth-child(1) .title {
+    animation-delay: 1.2s;
+}
+
+.slider .list .item:nth-child(1) .topic {
+    animation-delay: 1.4s;
+}
+
+.slider .list .item:nth-child(1) .des {
+    animation-delay: 1.6s;
+}
+
+.slider .list .item:nth-child(1) .buttons {
+    animation-delay: 1.8s;
+}
+
+.slider.next .list .item:nth-child(1) img {
+    width: 150px;
+    height: 220px;
+    position: absolute;
+    left: 50%;
+    bottom: 50px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    animation: showImg 0.5s linear 1 forwards;
+    -webkit-animation: showImg 0.5s linear 1 forwards;
+}
+
+.slider.prev .list .item:nth-child(2) {
+    z-index: 2;
+}
+
+.slider.prev .list .item:nth-child(2) img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: outImg 0.5s linear 1 forwards;
+    -webkit-animation: outImg 0.5s linear 1 forwards;
+}
+
+.slider.prev .list .item:nth-child(2) .anime,
+.slider.prev .list .item:nth-child(2) .title,
+.slider.prev .list .item:nth-child(2) .topic,
+.slider.prev .list .item:nth-child(2) .des,
+.slider.prev .list .item:nth-child(2) .buttons {
+    animation: contentOut 1.5s linear 1 forwards;
+    -webkit-animation: contentOut 1.5s linear 1 forwards;
+}
+
+/* ************************** end slider ************************** */
+/* ************************** start thumbnail ************************** */
+.thumb {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    width: max-content;
+    z-index: 100;
+    display: flex;
+    gap: 20px;
+}
+
+.thumb .item {
+    width: 150px;
+    height: 220px;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.thumb .item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    pointer-events: none;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+    z-index: 1;
+}
+
+.thumb .item img {
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+.thumb .item .content {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 100%;
+    z-index: 5;
+    background-color: #f5f5f5;
+    background-image: linear-gradient(147deg, #f5f5f5 0%, #fffafa 74%);
+    color: transparent;
+    background-clip: text;
+}
+
+.thumb .item .content .title {
+    font-weight: bold;
+}
+
+.slider.next .thumb {
+    transform: translateX(150px);
+    -webkit-transform: translateX(150px);
+    -moz-transform: translateX(150px);
+    -ms-transform: translateX(150px);
+    -o-transform: translateX(150px);
+    animation: transformThumb 0.5s linear 1 forwards;
+    -webkit-animation: transformThumb 0.5s linear 1 forwards;
+}
+
+.slider.next .thumb .item:nth-last-child(1) {
+    width: 0;
+    overflow: hidden;
+    animation: showThumb 0.5s linear 1 forwards;
+    -webkit-animation: showThumb 0.5s linear 1 forwards;
+}
+
+.slider.prev .thumb .item:nth-child(1) {
+    width: 0;
+    opacity: 0;
+    overflow: hidden;
+    animation: showThumb 0.5s linear 1 forwards;
+    -webkit-animation: showThumb 0.5s linear 1 forwards;
+}
+
+/* ************************** end thumbnail ************************** */
+/* ************************** start arrows ************************** */
+.arrows {
+    position: absolute;
+    top: 55%;
+    right: 40px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    z-index: 100;
+}
+
+.arrows button {
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    background-color: #eee4;
+    width: 40px;
+    height: 40px;
+    border: none;
+    font-weight: bold;
+}
+
+.slider.next .arrows button,
+.slider.prev .arrows button {
+    pointer-events: none;
+}
+
+/* ************************** end arrows ************************** */
+
+/* ************************** start time ************************** */
+.time {
+    width: 0%;
+    height: 3px;
+    background-color: #f1683a;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.slider.next .time,
+.slider.prev .time {
+    width: 100%;
+    animation: timeRunning 2s linear 1 forwards;
+    -webkit-animation: timeRunning 2s linear 1 forwards;
+}
+
+/* ************************** end time ************************** */

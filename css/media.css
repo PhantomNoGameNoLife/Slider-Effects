@@ -1,0 +1,30 @@
+@media screen and (min-width: 576px) {
+    .max-lg {
+        max-width: 70%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .max-lg {
+        max-width: 45%;
+    }
+}
+
+@media screen and (max-width: 678px) {
+    .slider .list .item .content {
+        top: 15%;
+    }
+
+    .slider .list .item .content .title,
+    .slider .list .item .content .topic {
+        font-size: 3em;
+    }
+
+    .slider .list .item .content .des {
+        font-size: .875rem;
+    }
+
+    .slider .list .item .content .buttons button {
+        font-size: .9375rem;
+    }
+}
